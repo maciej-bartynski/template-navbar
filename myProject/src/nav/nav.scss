@@ -1,0 +1,106 @@
+div.nav {
+    width: 100%;
+    border-top: 5px $blue_a solid;
+    border-bottom: 2px $blue_a solid;
+}
+
+nav {
+    background-color: white;
+    width: 100%;
+    @include row;
+    @include user-select;
+    @include col;
+    font-size: 1rem;
+    transition: top 500ms;
+    top: -500px;
+}
+
+.nav_pos1 {
+    margin-top: 5px;
+    width: 90%;
+    @include row(space-between, stretch);
+    margin-bottom: 10px;
+    .nav_pos1_con1 {
+        width: 10vw;
+        @include row(flex-start);
+    }
+    .nav_pos1_con2 {
+        @include row(flex-end, center);
+        span {
+            opacity: 0.7;
+            @media only screen and (orientation: portrait),
+            (max-width: 600px) {
+                display: none;
+            }
+        }
+        i {
+            display: none;
+        }
+    }
+}
+
+.nav_pos2 {
+    width: 90%;
+    .nav_pos2_con {
+        width: 100%;
+        border-top: solid 2px $blue-bg_a;
+        ul {
+            @include row(space-between, center);
+            @media only screen and (orientation: 'portrait') {
+                @include row(center, center);
+            }
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            li {
+                @include row(center, center);
+                margin: 0;
+                padding: 5px;
+                border-bottom: solid 5px transparent;
+                text-transform: uppercase;
+                font-family: $sans;
+                letter-spacing: 0.1em;
+                font-size: 0.75em;
+                cursor: pointer;
+                &::first-letter {
+                    font-size: 1.2em;
+                }
+                &:hover {
+                    color: $blue_a;
+                    border-bottom: solid 5px $blue_a;
+                }
+                @media only screen and (orientation: 'portrait') {
+                    min-width: 33.33%;
+                }
+            }
+        }
+    }
+}
+
+nav.on-scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    @include shadow-nav;
+    .nav_pos1 i {
+        display: none;
+        @media only screen and (orientation: portrait) and (max-width: 600px) {
+            display: initial;
+            cursor: pointer;
+            color: $blue_a;
+            font-size: 1.5em;
+        }
+    }
+    .nav_pos2 {
+        @media only screen and (orientation: portrait) and (max-width: 600px) {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 300ms;
+            &.on-show {
+                max-height: 100vh;
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color: $black_a;
+    font-family: $serif;
+    @media screen and (orientation: portrait) {
+        font-size: 12px;
+    }
+    @media screen and (orientation: landscape) {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 2rem;
+        font-family: $sans;
+    }
+    h2 {
+        font-size: 1.75rem;
+        font-family: $sans;
+    }
+    h3 {
+        font-size: 1.5rem;
+        font-family: $sans;
+    }
+    h4 {
+        font-size: 1.25rem;
+        font-family: $sans;
+    }
+    h5 {
+        font-size: 1rem;
+        font-family: $sans;
+    }
+    h6 {
+        font-size: 0.75rem;
+        font-family: $sans;
+    }
+}
+
+body {
+    margin: 0;
+    background-color: $blue-bg_a;
+}
+
+.random {
+    height: 100vh;
+    border-top: solid 1px white;
+}
+header{
+    border-top: none;
+}
